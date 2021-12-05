@@ -1,0 +1,59 @@
+body {
+    background: linear-gradient(90deg, #cae6e1, #1abc9c);		
+}
+.form-style-5{
+    max-width: 90%;
+    padding: 10px 20px;
+    background: #f4f7f8;
+    margin: 10px auto;
+    padding: 20px;
+    background: #f4f7f8;
+    border-radius: 8px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.form-style-5 #students_list a{
+    float:left;
+    margin-right:10px;
+    text-decoration: none;
+    background: #efefef;
+    border: 1px solid #b9aeae;
+    padding: 0px 4px;
+    color:#141313;
+    font-family: monospace;
+    font-size: 15px;
+}
+
+.form-style-5 h2{
+    text-align: center;
+    font-weight: 600;
+    background-color: #1dbd9d;
+    padding: 15px;
+}
+
+.nav_button
+{
+    margin:10px;
+    background-color: #1dbd9d; /* Green */
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+}
+.nav_button:hover{
+    cursor:pointer;
+    color: white;
+}
+
+.form_flashmsg{
+    background: #468b35;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
