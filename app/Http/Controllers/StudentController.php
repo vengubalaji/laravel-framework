@@ -16,7 +16,7 @@ class StudentController extends Controller
     public function index()
     {
         //return Student::all();
-        return view('student.index', ['students' => Student::orderby('id','asc')->get()]);
+        return view('student.index', ['students' => Student::orderby('id','desc')->get()]);
     }
 
     /**
@@ -54,7 +54,7 @@ class StudentController extends Controller
         // $student->visitor = $request->ip(); 
         // //dd($student); die();
         // $student->save();
-        $request->session()->flash('status','Student has been added');
+        $request->session()->flash('status','Student has been added!');
         return redirect()->route('student.show', ['student' => $student->id]);
     }
 
