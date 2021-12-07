@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
-    protected $fillable = ['roll_no','name','email','gender','year','department_id','address','visitor'];
     use HasFactory;
+
+    protected $fillable = ['roll_no','name','email','gender','year','department_id','address','visitor'];
+    
+    public function certificates()
+    {
+        return $this->hasMany('App\Models\Certificates');
+    }
 }

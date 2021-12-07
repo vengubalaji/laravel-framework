@@ -144,7 +144,7 @@ class StudentTest extends TestCase
 
     public function test_deleteStudent() 
     {
-        $student = $this->createDummyBlogPost();
+        $student = $this->createDummyStudentPost();
         
         $this->assertDatabaseHas('students',[
             'roll_no' => 'A000050'
@@ -160,20 +160,23 @@ class StudentTest extends TestCase
         ]);
     }
 
-    private function createDummyBlogPost()
+    private function createDummyStudentPost()
     {
         //ARRANGE PART
-        $student = new Student();
-        $student->roll_no = 'A000050'; 
-        $student->name = 'Arun Kumar'; 
-        $student->email = 'arunkumar@gmail.com'; 
-        $student->gender = 'M'; 
-        $student->year = 'Third'; 
-        $student->department_id = '101'; 
-        $student->address = ''; 
-        $student->visitor = ''; 
-        $student->save();
+        // $student = new Student();
+        // $student->roll_no = 'A000050'; 
+        // $student->name = 'Arun Kumar'; 
+        // $student->email = 'arunkumar@gmail.com'; 
+        // $student->gender = 'M'; 
+        // $student->year = 'Third'; 
+        // $student->department_id = '101'; 
+        // $student->address = ''; 
+        // $student->visitor = ''; 
+        // $student->save();
 
-        return $student;
+        //return $student;
+
+        //return Student::factory()->state(['roll_no' => 'A000050'])->create();
+        return Student::factory()->anonymous()->create();
     }
 }

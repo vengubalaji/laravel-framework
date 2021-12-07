@@ -23,7 +23,7 @@
 <script>
   jQuery(document).ready(function() {
     jQuery('#students_list').DataTable( {
-      "pageLength": 5
+      "pageLength": 10
     } );
 } );
 </script>

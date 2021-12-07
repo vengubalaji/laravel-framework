@@ -2,7 +2,13 @@
 {{-- @continue($key == 1) --}}
 <tr>
     <td>{{ $student->roll_no }}</td>
-    <td>{{ $student->name }}</td>
+    <td>{{ $student->name }}
+        {{-- @if ($student->certificates_count)
+            ( {{ $student->certificates_count }}  Certificates );
+        @else
+            No Certificates yet!        
+        @endif --}}
+    </td>
     <td>{{ $student->email }}</td>
     <td>
         <div class="action"><a href="{{ route('student.show', ['student' => $student->id]) }}">VIEW</a></div>

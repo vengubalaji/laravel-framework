@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreStudent;
 use App\Models\Student;
 use Illuminate\Http\Request;
+//use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
@@ -15,8 +16,23 @@ class StudentController extends Controller
      */
     public function index()
     {
+        // DB::connection()->enableQueryLog();
+        // $students = Student::with('certificates')->get();
+        // foreach($students as $student){
+        //     foreach($student->certificates as $certificate){
+        //         echo $certificate->name;
+        //     }
+        // }
+        // dd(DB::getQueryLog());
         //return Student::all();
-        return view('student.index', ['students' => Student::orderby('id','desc')->get()]);
+
+        //WITH COUNT PROPERTY
+        return view(
+            'student.index', 
+            ['students' => Student::withCount('certificates')->get()]
+        );
+
+        //return view('student.index', ['students' => Student::orderby('id','desc')->get()]);
     }
 
     /**
@@ -66,7 +82,7 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        return view('student.show', ['student' => Student::findOrFail($id)]);
+        return view('student.show', ['student' => Student::with('certificates')->findOrFail($id)]);
     }
 
     /**
