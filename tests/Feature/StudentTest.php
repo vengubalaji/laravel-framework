@@ -51,6 +51,9 @@ class StudentTest extends TestCase
 
     public function test_storeStudentSuccess()
     {
+
+        $user = $this->user();
+        
         $params =[
             'roll_no' => 'A000051',
             'name' => 'Arun Kumar', 
@@ -61,6 +64,8 @@ class StudentTest extends TestCase
             'address' => 'Chennai',
             'visitor' => '' 
         ];
+
+        $this->actingAs($user);
 
         $this->post('/student', $params)
         ->assertStatus(302)
@@ -83,7 +88,8 @@ class StudentTest extends TestCase
             'visitor' => '' 
         ];
 
-        $this->post('/student', $params)
+        $this->actingAs($this->user())
+        ->post('/student', $params)
         ->assertStatus(302)
         ->assertSessionHas('errors');
 
@@ -123,7 +129,8 @@ class StudentTest extends TestCase
             'visitor' => '' 
         ];
 
-        $this->put("/student/{$student->id}", $params)
+        $this->actingAs($this->user())
+            ->put("/student/{$student->id}", $params)
             ->assertStatus(302)
             ->assertSessionHas('status');
 
@@ -150,7 +157,8 @@ class StudentTest extends TestCase
             'roll_no' => 'A000050'
         ]);
 
-        $this->delete("/student/{$student->id}")
+        $this->actingAs($this->user())
+            ->delete("/student/{$student->id}")
             ->assertStatus(302)
             ->assertSessionHas('status');
 

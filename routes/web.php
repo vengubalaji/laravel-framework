@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +22,10 @@ use Illuminate\Support\Facades\Route;
 // });
 
 // Home Page Routes
-Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('/', [HomeController::class, 'home'])
+->name('home')
+//  ->middleware('auth')
+;
     
 // Static Page Routes
 Route::get('/static', AboutController::class)->name('static');
@@ -32,3 +36,6 @@ Route::resource('/student', StudentController::class);
 // Route::prefix('/student')->name('student.')->group(function () use($products){
 
 // });
+
+//Authentication
+Auth::routes();

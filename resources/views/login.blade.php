@@ -2,20 +2,31 @@
 <html>
   
 <head>
-    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css">
 </head>
   
 <body>
     <div class="container">
         <div class="screen">
             <div class="screen__content">
-                <ul class="diamond">
-                    <li><a href="{{ route('student.index') }}" class="text-sm text-gray-700 underline">Student List <i class="arrow right"></i></a></li>
-                    <li><a href="{{ url('/student.list') }}" class="text-sm text-gray-700 underline">Staff List <i class="arrow right"></i></a></li>
-                    <li><a href="{{ url('/student.list') }}" class="text-sm text-gray-700 underline">Department <i class="arrow right"></i></a></li>
-                </ul>
+                <form class="login">
+                    <div class="login__field">
+                        <i class="login__icon fas fa-user"></i>
+                        <input type="text" class="login__input" placeholder="User name / Email">
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-lock"></i>
+                        <input type="password" class="login__input" placeholder="Password">
+                    </div>
+                    <button class="button login__submit">
+                        <span class="button__text">Log In Now</span>
+                        <i class="button__icon fas fa-chevron-right"></i>
+                    </button>				
+                </form>
                 <div class="social-login">
-                    <h3>Student Management</h3>
+                    <h3>log in via</h3>
                     <div class="social-icons">
                         <a href="#" class="social-login__icon fab fa-instagram"></a>
                         <a href="#" class="social-login__icon fab fa-facebook"></a>
