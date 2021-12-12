@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentController;
+use App\Models\Departments;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +34,9 @@ Route::get('/static', AboutController::class)->name('static');
 
 // Resource Controller Routes
 Route::resource('/student', StudentController::class);
+
+Route::resource('/departments', DepartmentController::class);
+
 
 // Route::prefix('/student')->name('student.')->group(function () use($products){
 
